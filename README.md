@@ -8,7 +8,7 @@ Action is a tool for new app image deployment on the [Coswarm](https://coswarm.d
 - Create CSW_URL and CSW_APP_ID environment variables
 - If you want to use a custom image registry, create REGISTRY_URL , REGISTRY_USERNAME and REGISTRY_PASSWORD environment variables
 
-```
+```yaml
 name: Coswarm Deploy
 
 on:
