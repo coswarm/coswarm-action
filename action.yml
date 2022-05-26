@@ -1,0 +1,36 @@
+name: 'Coswarm App Update Action'
+description: 'Coswarm app update action. This action will update the app. If request not success,then we create issue about the error.'
+author: 'Mansur Berbero <mansurberbero@gmail.com>'
+
+inputs:
+  GITHUB_TOKEN:
+    description: 'GitHub token'
+    required: true
+  CSW_URL:
+    description: 'CSW URL'
+    required: true
+  IMAGE_NAME:
+    description: 'Image name'
+    required: true
+  CSW_APP_ID:
+    description: 'CSW App ID'
+    required: true
+  REGISTRY_URL:
+    description: 'Registry URL'
+    required: false
+  REGISTRY_USERNAME:
+    description: 'Registry Username'
+    required: false
+  REGISTRY_PASSWORD:
+    description: 'Registry Password'
+    required: false
+  CREATE_SUCCESS_ISSUE:
+    description: 'Create issue if update success'
+    required: false
+  CREATE_FAILURE_ISSUE:
+    description: 'Create issue if update failure'
+    required: false
+
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
