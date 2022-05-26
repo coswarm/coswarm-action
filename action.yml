@@ -2,7 +2,7 @@ name: 'Coswarm App Update Action'
 description: 'Coswarm app update action. This action will update the app. If request not success,then we create issue about the error.'
 author: 'Mansur Berbero <mansurberbero@gmail.com>'
 branding:
-  icon: 'anchor'
+  icon: 'upload-cloud'
   color: 'green'
 
 inputs:
