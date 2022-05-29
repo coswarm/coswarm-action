@@ -14806,7 +14806,12 @@ async function run() {
         ...context.repo,
         title: 'Deployment failed',
         body: `Deployment failed for ${IMAGE_NAME}`,
-        labels: ['deployment']
+        labels: ['deployment',
+          {
+            name: 'deployment-failed',
+            color: '#B60205'
+          }
+        ]
       });
     }
     core.setFailed(`Deployment failed: please check the logs for more information`);
@@ -14816,30 +14821,16 @@ async function run() {
         ...context.repo,
         title: 'Deployment successful',
         body: `Deployment successful for ${IMAGE_NAME}`,
-        labels: ['deployment']
+        labels: ['deployment',
+          {
+            name: 'deployment-success',
+            color: '#0E8A16'
+          }
+        ]
       });
     }
     core.setOutput('deployment', "App deployed successfully");
   }
-
-
-  // .then((res) => {
-  //   await octokit.issues.create({
-  //     ...context.repo,
-  //     title: `Deployment of ${IMAGE_NAME}`,
-  //     body: "App deployed successfully",
-  //   })
-  //   core.setOutput('issue_url', issue.data.html_url);
-  //   // core.setOutput('deployment_id', "App deployed successfully");
-
-  // }).catch((err) => {
-  //   // await octokit.issues.create({
-  //   //   ...context.repo,
-  //   //   title: 'CSW URL is not reachable',
-  //   //   body: `CSW URL is not reachable: ${err}`,
-  //   // });
-  //   // core.setFailed(`CSW URL is not reachable: ${err}`);
-  // });
 }
 
 run().catch(e => core.setFailed(e.message));
